@@ -19,6 +19,7 @@ function ExpenseForm(props) {
   };
   const clickHandlerDate = (e) => {
     setDate(e.target.value);
+    console.log(e.target);
     // setUserInput({
     //   ...userInput,
     //   date: e.target.value,
@@ -37,9 +38,9 @@ function ExpenseForm(props) {
     const expenseData = {
       title: title,
       amount: amount,
-      date: date,
+      date: new Date(date),
     };
-    console.log(expenseData);
+
     props.onSaveData(expenseData);
     setTitle("");
     setAmount("");

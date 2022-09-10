@@ -4,10 +4,9 @@ import "./NewExpense.css";
 function NewExpenses(props) {
   const savedData = (savedExpenseData) => {
     const expenseData = {
+      id: Math.round(Math.random() * 10).toString(),
       ...savedExpenseData,
-      id: Math.random().toString(),
     };
-    console.log(expenseData);
     props.onAddExpenses(expenseData);
   };
 
