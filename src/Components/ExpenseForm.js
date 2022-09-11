@@ -1,5 +1,7 @@
 import "./ExpenseForm.css";
 import { useState } from "react";
+import Card from "./Card";
+
 function ExpenseForm(props) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -45,6 +47,10 @@ function ExpenseForm(props) {
     setTitle("");
     setAmount("");
     setDate("");
+
+    const removingClass = () => {
+      console.log(document.getElementById("hide"));
+    };
   };
   return (
     <div>
@@ -76,6 +82,9 @@ function ExpenseForm(props) {
           </div>
         </div>
         <div className="new-expense__actions">
+          <button onClick={props.cancel} type="button">
+            Cancel
+          </button>
           <button type="submit">Add Expenses</button>
         </div>
       </form>

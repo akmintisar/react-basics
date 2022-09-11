@@ -3,6 +3,7 @@ import "./NewComponentExpenses.css";
 import Card from "./Card";
 import ExpensesFilter from "./ExpensesFilter";
 import { useState } from "react";
+import ExpensesList from "./ExpensesList";
 
 function NewComponentExpenses(props) {
   const [year, setYear] = useState("");
@@ -14,19 +15,30 @@ function NewComponentExpenses(props) {
     (element) => element.date.getFullYear() === Number(year)
   );
 
-  console.log(basedOnYear);
+  // let mainData = <p>No data available for this Year!</p>;
+  // if (basedOnYear.length > 0) {
+  //   mainData = basedOnYear.map((expense) => (
+  //     <ExpenseItem
+  //       key={expense.id}
+  //       title={expense.title}
+  //       amount={expense.amount}
+  //       date={expense.date}
+  //     ></ExpenseItem>
+  //   ));
+  // }
   return (
     <div>
       <Card className="expenses">
         <ExpensesFilter selectedYear={yearHandler}></ExpensesFilter>
-        {props.expenses.map((expense) => (
+        <ExpensesList items={basedOnYear}></ExpensesList>
+        {/* {basedOnYear.map((expense) => (
           <ExpenseItem
             key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
           ></ExpenseItem>
-        ))}
+        ))} */}
 
         {/* <ExpenseItem
           title={props.expenses[0].title}
