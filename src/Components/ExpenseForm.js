@@ -39,7 +39,7 @@ function ExpenseForm(props) {
     e.preventDefault();
     const expenseData = {
       title: title,
-      amount: amount,
+      amount: +amount,
       date: new Date(date),
     };
 
@@ -47,10 +47,6 @@ function ExpenseForm(props) {
     setTitle("");
     setAmount("");
     setDate("");
-
-    const removingClass = () => {
-      console.log(document.getElementById("hide"));
-    };
   };
   return (
     <div>
